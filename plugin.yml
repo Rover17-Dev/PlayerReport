@@ -1,0 +1,16 @@
+---
+name: PlayerReport
+version: 0.5.0
+main: Rover17\PlayerReport\Main
+api: 5.0.0
+
+commands:
+  report:
+    description: "Report a player"
+    usage: "/report"
+    permission: report.command
+
+permissions:
+  report.command:
+    default: true
+    description: "Allows the use of /report"

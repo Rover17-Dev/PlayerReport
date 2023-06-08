@@ -9,7 +9,7 @@ projects:
       - src: dresnite/EasyUI/libEasyUI
         version: ^1.0.3
         branch: pm5
-      - src: CortexPE/DiscordWebhookAPI
-        version: ^1.0.2
-        branch: pm4
+      - src: ialdrich23xx\libasynwebhook
+        version: ^1.1.0
+        branch: main
 ...

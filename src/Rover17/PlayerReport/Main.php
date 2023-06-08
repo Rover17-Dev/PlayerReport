@@ -73,10 +73,10 @@ public function onCommand(CommandSender $sender, Command $command, string $label
                 ->setFooter(Footer::make("PlayerReport plugin")
                     ->setIcon("url_icon"))
                 ->setAuthor(Author::make("test")
-               //     ->setUrl("")
-               //     ->setIcon(""))
+                    ->setUrl("")
+                    ->setIcon(""))
             )
-        )->send()
+        )->send();
 			});
 			
 		$sender->sendForm($form);

@@ -6,10 +6,9 @@ projects:
   PlayerReport:
     path: ""
     libs:
-      - src: dresnite/EasyUI/libEasyUI
-        version: ^1.0.3
-        branch: pm5
-      - src: ialdrich23xx\libasynwebhook
-        version: ^1.1.0
-        branch: main
+    - src: dresnite/EasyUI/libEasyUI
+      version: ^1.0.3
+      branch: pm5
+    - src: ialdrich23xx\libasynwebhook
+      version: ^1.1.0
 ...

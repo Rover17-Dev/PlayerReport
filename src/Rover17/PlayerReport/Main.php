@@ -11,9 +11,14 @@ use pocketmine\utils\TextFormat;
 use pocketmine\command\Command;
 use pocketmine\Server;
 
-use CortexPE\DiscordWebhookAPI\Message;
-use CortexPE\DiscordWebhookAPI\Webhook;
-use CortexPE\DiscordWebhookAPI\Embed; 
+use common\ServerComposer;
+use ialdrich23xx\libasynwebhook\discord\body\Base;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Author;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Footer;
+use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedColors;
+use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
+use ialdrich23xx\libasynwebhook\discord\WebHook;
+use ialdrich23xx\libasynwebhook\Loader;
 
 use EasyUI\element\Dropdown;
 use EasyUI\element\Input;
@@ -61,20 +66,17 @@ public function onCommand(CommandSender $sender, Command $command, string $label
 			$pseudo = $response->getInputSubmittedText("name");
 			$reason= $response->getDropdownSubmittedOptionId("reason");
 			$details = $response->getInputSubmittedText("details");
-			$webHook = new Webhook($this->config["webhook"]);
-			$msg = new Message();
-					$embed = new Embed();
-		$embed->setTitle("Report");
-		$embed->setColor(0x0000FF);
-		$embed->addField("Player", "$pseudo");
-		$embed->addField("Reason", "$reason", true);
-		$embed->addField("Details", "$details$", true);
-		$embed->addField(":", "S'agit t'il d'une erreur ?", true);
-		
-		$embed->setFooter("Report - 2023","https://cortexpe.xyz/utils/kitsu.png");
-			$msg->addEmbed($embed);
-		
-			$webHook->send($msg);
+	
+
+        WebHook::make($this->config["webhook"], Base::make()
+            ->addEmbed(EmbedManager::make("Player REPORT", "Player $pseudo Reason $reason Details $details", EmbedColors::Red)
+                ->setFooter(Footer::make("PlayerReport plugin")
+                    ->setIcon("url_icon"))
+                ->setAuthor(Author::make("test")
+               //     ->setUrl("")
+               //     ->setIcon(""))
+            )
+        )->send();
 			});
 			
 		$sender->sendForm($form);

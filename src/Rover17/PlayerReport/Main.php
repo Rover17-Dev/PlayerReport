@@ -68,7 +68,7 @@ public function onCommand(CommandSender $sender, Command $command, string $label
 			$details = $response->getInputSubmittedText("details");
 	
 
-        WebHook::make("$this->config["webhook"]", Base::make()
+        WebHook::make( $this->config["webhook"], Base::make()
             ->addEmbed(EmbedManager::make("Player REPORT", "Player $pseudo Reason $reason Details $details", EmbedColors::Red)
                 ->setFooter(Footer::make("PlayerReport plugin")
                     ->setIcon("url_icon"))

@@ -76,7 +76,7 @@ public function onCommand(CommandSender $sender, Command $command, string $label
                //     ->setUrl("")
                //     ->setIcon(""))
             )
-        )->send();
+        )->send()
 			});
 			
 		$sender->sendForm($form);
